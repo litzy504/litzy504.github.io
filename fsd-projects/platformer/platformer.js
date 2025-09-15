@@ -15,51 +15,60 @@ $(function () {
       //start game
       setInterval(main, 1000 / frameRate);
     }
-
     // Create walls - do not delete or modify this code
-    createPlatform(-50, -50, canvas.width + 100, 50); // top wall
-    createPlatform(-50, canvas.height - 10, canvas.width + 100, 200, "navy"); // bottom wall
-    createPlatform(-50, -50, 50, canvas.height + 500); // left wall
-    createPlatform(canvas.width, -50, 50, canvas.height + 100); // right wall
+    createPlatform(-50, -50, canvas.width + 100, 50); //top
+    createPlatform(-50, canvas.height - 10, canvas.width + 100, 200); //right
+    createPlatform(-50, -50, 50, canvas.height + 500); //bottom
+    createPlatform(canvas.width, -50, 50, canvas.height + 100);
 
-    //////////////////////////////////
-    // ONLY CHANGE BELOW THIS POINT //
-    //////////////////////////////////
+    /**
+     * Uncomment the drawGrid() function call below to add a "grid" to your platformer game's screen
+     * The grid will place both horizontal and vertical platforms incremented 100 pixels apart
+     * This can help you determine specific x any y values throughout the game
+     * Comment the function call out to remove the grid
+     */
 
-    // TODO 1 - Enable the Grid
-     toggleGrid();
+    // drawGrid();
 
+    /////////////////////////////////////////////////
+    //////////ONLY CHANGE BELOW THIS POINT///////////
+    /////////////////////////////////////////////////
 
-    // TODO 2 - Create Platforms
-  createPlatform(200,620,250,100,"green");
+    // TODO 1
+    // Create platforms
+    // You must decide the x position, y position, width, and height of the platforms
+    // example usage: createPlatform(x,y,width,height)
 
-
-    // TODO 3 - Create Collectables
-   createPlatform(300,420,250,20,"green");
-
-
+       createPlatform(20, 200, 100, 10)
+       createPlatform(250, 200, 30, 10)
+       createPlatform(400, 200, 350, 10)
+       createPlatform(850, 200, 30, 10)
+       createPlatform(1000, 200, 200, 10)
     
-    // TODO 4 - Create Cannons
-    createPlatform(520,550,250,20,"green");
+    // TODO 2
+    // Create collectables
+    // You must decide on the collectable type, the x position, the y position, the gravity, and the bounce strength
+    // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
+    // example usage: createCollectable(type, x, y, gravity, bounce)
 
-    // TODO 5 - Create Cannons
-    createPlatform(800,320,350,30,"green");
-
-    // TODO 6 - Create Cannons
-     createPlatform(500,220,250,30)
-
-    // TODO 7 - Create Cannons
-     createPlatform(300,300,150,20)
-
-
-
-
+       createCollectable("database",1260, 25, 0, 0)
+       createCollectable("database",1260, 400, 0, 0)
+       createCollectable("database",1260, 200, 0, 0)
     
-    
-    //////////////////////////////////
-    // ONLY CHANGE ABOVE THIS POINT //
-    //////////////////////////////////
+    // TODO 3
+    // Create cannons
+    // You must decide the wall you want the cannon on, the position on the wall, and the time between shots in milliseconds
+    // Your wall choices are: 'top' 'left' 'right' and 'bottom'
+    // example usage: createCannon(side, position, delay, width, height)
+
+     createCannon("right",230,1000)
+     createCannon("top", 500, 1200)
+     createCannon("top", 700, 1200)
+    /////////////////////////////////////////////////
+    //////////ONLY CHANGE ABOVE THIS POINT///////////
+    /////////////////////////////////////////////////
   }
 
   registerSetup(setup);
 });
+
